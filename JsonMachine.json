@@ -1,0 +1,26 @@
+{
+  "$type": "Jarditech.Models.MachinCollection, Jarditech",
+  "$values": [
+    {
+      "$type": "Jarditech.Models.TailleHaie, Jarditech",
+      "IdMachine": 15,
+      "ConstructeurMachine": "reno",
+      "ReferenceMachine": "123456",
+      "Client": {
+        "$type": "Jarditech.Models.Client, Jarditech",
+        "IdClient": 0,
+        "Firstname": "toto",
+        "Lastname": "titi",
+        "Adress": "Mons",
+        "MailClient": "khaled@gmail.com",
+        "PhoneClient": "01599999999996"
+      },
+      "DescriptionClient": "problem",
+      "WorkDescription": "lol",
+      "Entretenir": true,
+      "Repar": true,
+      "Price": 15.99,
+      "WorkTime": 60
+    }
+  ]
+}

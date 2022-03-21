@@ -1,0 +1,15 @@
+﻿<Window x:Class="Jarditech.Views.ChoixMachineWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Jarditech.Views"
+        mc:Ignorable="d"
+        Title="ChoixMachineWindow" Height="450" Width="800">
+    <StackPanel>
+        <Label Content="Type de machine :"  HorizontalAlignment="Center" Margin="0 50 205 10"/>
+        <ComboBox x:Name="ComboBoxTypesMachine" Width="300" HorizontalAlignment="Center" Padding="2" />
+        <Button x:Name="BtnSelectionMachin" Content="Créer" Click="BtnSelectionMachin_Click" Margin="0 110 0 0" Width="300" />
+
+    </StackPanel>
+</Window>

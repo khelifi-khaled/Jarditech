@@ -1,0 +1,14 @@
+{
+  "$type": "Jarditech.Models.ClientCollection, Jarditech",
+  "$values": [
+    {
+      "$type": "Jarditech.Models.Client, Jarditech",
+      "IdClient": 0,
+      "Firstname": "khaled",
+      "Lastname": "khelifi",
+      "Adress": "Mons",
+      "MailClient": "khaled@gmail.com",
+      "PhoneClient": "0123456456"
+    }
+  ]
+}

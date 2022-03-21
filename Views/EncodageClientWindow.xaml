@@ -1,0 +1,50 @@
+﻿<Window x:Class="Jarditech.Views.EncodageClientWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Jarditech.Views" xmlns:viewmodels="clr-namespace:Jarditech.ViewModels" d:DataContext="{d:DesignInstance Type=viewmodels:EncodageClientWindowVM}"
+        mc:Ignorable="d"
+        Title="Encodage Client" Height="450" Width="800">
+    <StackPanel>
+        <!-- Numero de  Client -->
+        <Label Content="N°"/>
+        <TextBox x:Name="NumClient" Width="200" IsReadOnly="True"  HorizontalAlignment="Left" Text ="{Binding Path=IdClient, UpdateSourceTrigger=PropertyChanged,Mode=OneWay}" Background="#eee"/>
+
+        <!-- le nom de  Client -->
+        <Label Content="Nom :"/>
+        <TextBox x:Name="NomClient" Width="200" HorizontalAlignment="Left"  Text="{Binding Path=LastName,UpdateSourceTrigger=PropertyChanged}" />
+        <!-- le Prenom de  Client -->
+        <Label Content="PreNom :"/>
+        <TextBox x:Name="PreNomClient" Width="200" HorizontalAlignment="Left" Text="{Binding Path=FirstName , UpdateSourceTrigger=PropertyChanged}" />
+        <!-- le Email de  Client -->
+        <Label Content="Email :"/>
+        <TextBox x:Name="EmailClient" Width="200" HorizontalAlignment="Left" Text="{Binding Path=MailClient  , UpdateSourceTrigger=PropertyChanged}"/>
+        <!-- le Téléphone de  Client-->
+        <Label Content="N°Tel. :"/>
+        <TextBox x:Name="PhoneClient" Width="200" HorizontalAlignment="Left" Text="{Binding Path=PhoneClient , UpdateSourceTrigger=PropertyChanged}" />
+        <!-- l'address de  Client-->
+        <Label Content="Adress :"/>
+        <TextBox x:Name="AdressClient" Width="200" HorizontalAlignment="Left" Text="{Binding Path=Adress , UpdateSourceTrigger=PropertyChanged}" />
+        <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+            <Button
+                x:Name="ButtonNew"
+                Width="100"
+                Margin="5,0,5,0"
+                Click="ButtonNew_Click"
+                Content="Nouveau" />
+            <Button
+                x:Name="ButtonSave"
+                Width="100"
+                Margin="5,0,5,0"
+                Click="ButtonSave_Click"
+                Content="Sauver" />
+            <Button
+                x:Name="ButtonCancel"
+                Width="100"
+                Margin="5,0,5,0"
+                Click="ButtonCancel_Click"
+                Content="Annuler" />
+        </StackPanel>
+    </StackPanel>
+</Window>
