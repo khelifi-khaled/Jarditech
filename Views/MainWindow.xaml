@@ -9,10 +9,9 @@
     <StackPanel>
         <Menu IsMainMenu="True">
             <MenuItem Header="_Programme">
-                <MenuItem Header="Sauver" />
                 <Separator />
-                <MenuItem x:Name ="Exit" Header="_Exit" Click="Exit_Click" />
                 <MenuItem x:Name ="Sauver" Header="Sauver" Click="Sauver_Click" />
+                <MenuItem x:Name ="Exit" Header="_Exit" Click="Exit_Click" />
             </MenuItem>
             <MenuItem Header="_Entretien reparation">
                 <MenuItem Header="Nouvelle machine" x:Name="NewMachine"  Click="NewMachine_Click" />
@@ -21,6 +20,11 @@
                 <MenuItem Header="Nouveau Client" x:Name="NewNewClient"  Click="NewNewClient_Click" />
             </MenuItem>
         </Menu>
+        <DataGrid ItemsSource="{Binding Machines, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" 
+                  SelectedItem="{Binding Path=SelMachine, Mode=TwoWay}" 
+                  MouseDoubleClick="DataGrid_MouseDoubleClick" 
+                  
+                  AutoGenerateColumns="True" Margin="5 10" ScrollViewer.CanContentScroll="True" CanUserAddRows="False" HorizontalAlignment="Center" SelectionUnit="FullRow" CanUserDeleteRows="False" Height="Auto" AlternatingRowBackground="LightCyan"/>
         <Button x:Name="ButtonTestCreateClient" Content="Test Create Client" HorizontalAlignment="Right" Width="150" Click="ButtonTestCreateClient_Click"/>
         <Button x:Name="ButtonTestCreateMachine" Content="Test Create Machine" HorizontalAlignment="Right" Width="150" Click="ButtonTestCreateMachine_Click"/>
 

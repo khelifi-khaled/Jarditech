@@ -18,6 +18,78 @@
       "Adress": "Mons",
       "MailClient": "khaled@totogmail.com",
       "PhoneClient": "tototot"
+    },
+    {
+      "$type": "Jarditech.Models.Client, Jarditech",
+      "IdClient": 3,
+      "FirstName": "",
+      "LastName": "khaled",
+      "Adress": "",
+      "MailClient": "",
+      "PhoneClient": ""
+    },
+    {
+      "$type": "Jarditech.Models.Client, Jarditech",
+      "IdClient": 4,
+      "FirstName": "khaled",
+      "LastName": "toto",
+      "Adress": "Mons",
+      "MailClient": "khaled@gmail.com",
+      "PhoneClient": "totot"
+    },
+    {
+      "$type": "Jarditech.Models.Client, Jarditech",
+      "IdClient": 5,
+      "FirstName": "dfgdfg",
+      "LastName": "sdfsgfd",
+      "Adress": "dfgdfg",
+      "MailClient": "dfgdfg",
+      "PhoneClient": "dfgdfg"
+    },
+    {
+      "$type": "Jarditech.Models.Client, Jarditech",
+      "IdClient": 10,
+      "FirstName": "zefzefz",
+      "LastName": "dfgdfgdfgfdg",
+      "Adress": "",
+      "MailClient": "zefzef",
+      "PhoneClient": ""
+    },
+    {
+      "$type": "Jarditech.Models.Client, Jarditech",
+      "IdClient": 10,
+      "FirstName": "zefzefz",
+      "LastName": "dfgdfgdfgfdg",
+      "Adress": "",
+      "MailClient": "zefzef",
+      "PhoneClient": ""
+    },
+    {
+      "$type": "Jarditech.Models.Client, Jarditech",
+      "IdClient": 10,
+      "FirstName": "zefzefz",
+      "LastName": "dfgdfgdfgfdg",
+      "Adress": "",
+      "MailClient": "zefzef",
+      "PhoneClient": ""
+    },
+    {
+      "$type": "Jarditech.Models.Client, Jarditech",
+      "IdClient": 10,
+      "FirstName": "zefzefz",
+      "LastName": "dfgdfgdfgfdg",
+      "Adress": "",
+      "MailClient": "zefzef",
+      "PhoneClient": ""
+    },
+    {
+      "$type": "Jarditech.Models.Client, Jarditech",
+      "IdClient": 10,
+      "FirstName": "zefzefz",
+      "LastName": "dfgdfgdfgfdg",
+      "Adress": "",
+      "MailClient": "zefzef",
+      "PhoneClient": ""
     }
   ]
 }

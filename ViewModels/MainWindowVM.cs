@@ -12,11 +12,42 @@ namespace Jarditech.ViewModels
 {
   
 
-    public class MainWindowVM 
+    public class MainWindowVM : INotifyPropertyChanged
 
     {
-       
+        public event PropertyChangedEventHandler PropertyChanged;
 
+
+        private const string MACHINS_JSON_FILE = @"C:\Users\Admin\source\repos\Jarditech\JsonMachine.json";
+
+        private const string CLIENTS_JSON_FILE = @"C:\Users\Admin\source\repos\Jarditech\JsonClient.json";
+
+
+        public ClientCollection  Clients { get; set; }
+        public MachinCollection Machines { get; set; }
+
+        public DataAccessJsn AccessjsonMachine { get; set; }
+         public DataAccessJsn AccessjsonClient { get; set; }
+
+        public Machines SelMachine { get; set; }
+        
+
+
+        public MainWindowVM()
+        {
+            AccessjsonMachine = new DataAccessJsn(MACHINS_JSON_FILE, new string[] { "json" });
+            AccessjsonClient = new DataAccessJsn(CLIENTS_JSON_FILE, new string[] { "json" });
+            Machines = AccessjsonMachine.GetMachinDatas();
+            Clients = AccessjsonClient.GetClientDatas();
+
+        }
+
+
+
+        protected void OnPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
 
 
     }//end class 

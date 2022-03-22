@@ -18,10 +18,6 @@ namespace Jarditech.Models
         private string _phoneClient;
 
 
-       
-
-
-
 
         public Client(string firsname="",string lastname="",string adress="",string mailClient="",string phoneClient="")
         {

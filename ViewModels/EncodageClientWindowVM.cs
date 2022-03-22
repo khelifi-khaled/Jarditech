@@ -22,7 +22,6 @@ namespace Jarditech.ViewModels
         {
             ClientDataAccess = new DataAccessJsn(CLIENTS_JSON_FILE, new string[] { "json" });
             Clients = ClientDataAccess.GetClientDatas();
-            ClientEnCoursEncodage = new Client();
             
         }
 
@@ -58,8 +57,16 @@ namespace Jarditech.ViewModels
             {
                 _clientEnCoursEncodage = value;
                 OnPropertyChanged(nameof(ClientEnCoursEncodage));
+
             }
         }
+
+      
+
+      
+
+
+
 
 
         protected void OnPropertyChanged(string propertyName)
@@ -69,8 +76,7 @@ namespace Jarditech.ViewModels
 
 
 
-
-
+        
 
 
     }//end class 

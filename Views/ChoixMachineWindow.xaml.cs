@@ -19,8 +19,10 @@ namespace Jarditech.Views
     /// </summary>
     public partial class ChoixMachineWindow : Window
     {
+
         public ChoixMachineWindow()
         {
+
             InitializeComponent();
         }
 

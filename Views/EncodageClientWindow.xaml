@@ -9,7 +9,7 @@
     <StackPanel>
         <!-- Numero de  Client -->
         <Label Content="N°"/>
-        <TextBox x:Name="NumClient" Width="200" IsReadOnly="True"  HorizontalAlignment="Left" Text ="{Binding Path=IdClient, UpdateSourceTrigger=PropertyChanged,Mode=OneWay}" Background="#eee"/>
+        <TextBox x:Name="NumClient" Width="200" IsReadOnly="True"  HorizontalAlignment="Left" Text ="{Binding Path=IdClient , UpdateSourceTrigger=PropertyChanged}" Background="#eee"/>
 
         <!-- le nom de  Client -->
         <Label Content="Nom :"/>

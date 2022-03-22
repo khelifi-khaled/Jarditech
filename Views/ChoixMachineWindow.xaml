@@ -8,7 +8,7 @@
         Title="ChoixMachineWindow" Height="450" Width="800">
     <StackPanel>
         <Label Content="Type de machine :"  HorizontalAlignment="Center" Margin="0 50 205 10"/>
-        <ComboBox x:Name="ComboBoxTypesMachine" Width="300" HorizontalAlignment="Center" Padding="2" />
+        <!--<ComboBox x:Name="ComboBoxTypesMachine" Width="300" HorizontalAlignment="Center" Padding="2"  /> -->
         <Button x:Name="BtnSelectionMachin" Content="Créer" Click="BtnSelectionMachin_Click" Margin="0 110 0 0" Width="300" />
 
     </StackPanel>

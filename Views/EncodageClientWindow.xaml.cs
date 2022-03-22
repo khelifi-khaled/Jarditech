@@ -22,19 +22,36 @@ namespace Jarditech.Views
 
 
 
-        public EncodageClientWindow(Client C,  ClientCollection Clts ,  DataAccess CDataAccess)
+        public EncodageClientWindow( ClientCollection Clts ,  DataAccess CDataAccess)
+        {
+
+            ThisClient = new Client ();
+            Clients = Clts;
+            DataContext = ThisClient;
+            ClientsDataAccess = CDataAccess;
+            InitializeComponent();
+
+
+        }//end EncodageClientWindow
+
+
+        public EncodageClientWindow(Client C, ClientCollection Clts, DataAccess CDataAccess)
         {
             ThisClient = C;
             Clients = Clts;
             DataContext = ThisClient;
             ClientsDataAccess = CDataAccess;
             InitializeComponent();
-            
+
 
         }//end EncodageClientWindow
 
+
+
         private void ButtonSave_Click(object sender, RoutedEventArgs e)
         {
+            
+
             // check si la list des  clients vide ou pas 
 
             if (Clients == null)
@@ -43,23 +60,27 @@ namespace Jarditech.Views
 
             }
 
-            ThisClient.IdClient = BuildIdClient();
 
             Clients.Add(ThisClient);
 
+
             MessageBox.Show($"le client {ThisClient.LastName} {ThisClient.FirstName} a été bien ajouté à la liste des clients" , "Nouveau Client ");
-           
-           
+
+
+            NumClient.Text = ThisClient.IdClient.ToString();
+
             //normalement on n'aura pas besoin de ça demain la sauvegard se fais aprés
             //le ClientEnCoursEncodage est bien enregistrer dans la liste 
 
             //ClientsDataAccess.UpdateAllClientsDatas(Clients);
 
 
+
         }//end ButtonSave_Click
 
         private void ButtonCancel_Click(object sender, RoutedEventArgs e)
         {
+            ThisClient = new Client();
             this.Close();
 
         }//end ButtonCancel_Click
@@ -70,7 +91,6 @@ namespace Jarditech.Views
 
 
         }//end ButtonNew_Click
-
 
 
 
@@ -97,5 +117,7 @@ namespace Jarditech.Views
 
 
 
-    }
-}
+
+
+    }//end class 
+}//end project 
