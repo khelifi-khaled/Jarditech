@@ -33,8 +33,15 @@ namespace Jarditech.Views
 
         private void Fiche_Client_Click(object sender, RoutedEventArgs e)
         {
-            EncodageClientWindow FicheClient = new EncodageClientWindow(MachinesVM.ClientSelected);
-            FicheClient.Show();
+            if (MachinesVM.ClientSelected!=null)
+            {
+                EncodageClientWindow FicheClient = new EncodageClientWindow(MachinesVM.ClientSelected);
+                FicheClient.Show();
+            }
+            else
+            {
+                MessageBox.Show($"mon chère utilisateur , j'ai  pas de client sélectionner, du coup sélectionne un client pour moi stp , a fin que je poisse  t'afficher sa fiche client.", "Mssg Err");
+            }
         }
     }
 }

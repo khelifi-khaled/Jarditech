@@ -16,7 +16,6 @@ namespace Jarditech.ViewModels
 
 
         private  string[] _liste_type_machin = { "TailleHaie", "Tondeuse", "TracteurTondeuse" };
-       
 
 
 
@@ -63,44 +62,10 @@ namespace Jarditech.ViewModels
             get;set;
         }
 
-        /// <summary>
-        /// a method for counting IdMachind
-        /// </summary>
-        /// <returns> integer IdMachind </returns>
-        public int bildIdMachine()
-        {
-            if (Machines == null) { return 1; }
-            else return Machines.Count+1;
-               
 
-        }
 
-        public Machines Nouvelle_machine(string machinSelected)
-        {
-            
+      
 
-            if (Machin_selecte_name.Equals("TailleHaie"))
-            {
-                TailleHaie t =  new TailleHaie (DateTime.Now, DateTime.Now.AddDays(14));
-                t.IdMachine = bildIdMachine();
-                return t;
-                
-            }
-            else if (Machin_selecte_name.Equals("Tondeuse"))
-            {
-                Tondeuse tn = new Tondeuse(DateTime.Now, DateTime.Now.AddDays(14));
-                tn.IdMachine= bildIdMachine(); 
-                return tn;
-               
-            }
-            else
-            {
-                TracteurTondeuse tt= new TracteurTondeuse(DateTime.Now, DateTime.Now.AddDays(14));
-                tt.IdMachine= bildIdMachine();
-                return tt;
-                
-            }
-        }
 
 
         protected void OnPropertyChanged(string propertyName)

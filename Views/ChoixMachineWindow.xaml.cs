@@ -22,13 +22,22 @@ namespace Jarditech.Views
 
         private void BtnSelectionMachin_Click(object sender, RoutedEventArgs e)
         {
-            ChoixVM.SelectedMachine = ChoixVM.Nouvelle_machine(ChoixVM.Machin_selecte_name);
-            
-            ChoixVM.Machines.Add(ChoixVM.SelectedMachine);
+            ChoixVM.SelectedMachine = ChoixVM.Machines.Nouvelle_machine(ChoixVM.Machin_selecte_name);
 
-            EncodageNouvelleMachineWindow ourmachine = new EncodageNouvelleMachineWindow(ChoixVM.Clients,ChoixVM.SelectedMachine,ChoixVM.Machines);
-            ourmachine.Show();
-            this.Close();
+            if (ChoixVM.SelectedMachine!=null)
+            { 
+                ChoixVM.Machines.AddMachin(ChoixVM.SelectedMachine);
+
+                EncodageNouvelleMachineWindow ourmachine = new EncodageNouvelleMachineWindow(ChoixVM.Clients, ChoixVM.SelectedMachine, ChoixVM.Machines);
+                ourmachine.Show();
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show($"mon chère utilisateur , j'ai  pas de Machine sélectionner, du coup sélectionne une Machine pour moi stp , a fin que je poisse  t'en crier une.","Mssg Err");
+            }
+
+            
         }
 
     }
