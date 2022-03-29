@@ -23,22 +23,21 @@ namespace Jarditech.Views
 
 
 
-        public EncodageClientWindow(Client c , ClientCollection Clts ,  DataAccess CDataAccess)
+        public EncodageClientWindow( ClientCollection Clts, Client c )
         {
-            EncodageVM = new EncodageClientWindowVM();
+            EncodageVM = new EncodageClientWindowVM(Clts,c);
             DataContext = EncodageVM;
             InitializeComponent();
 
         }//end EncodageClientWindow
 
-
-        public EncodageClientWindow(Client c )
+        public EncodageClientWindow( Client c)
         {
-            EncodageVM = new EncodageClientWindowVM();
+            EncodageVM = new EncodageClientWindowVM( c);
             DataContext = EncodageVM;
             InitializeComponent();
 
-        }//end EncodageClientWindow V2
+        }//end EncodageClientWindow
 
 
 
@@ -66,7 +65,6 @@ namespace Jarditech.Views
 
            NumClient.Text = EncodageVM.ClientEnCoursEncodage.IdClient.ToString();
 
-            EncodageVM.ClientDataAccess.UpdateAllClientsDatas(EncodageVM.Clients);
 
 
         }//end ButtonSave_Click

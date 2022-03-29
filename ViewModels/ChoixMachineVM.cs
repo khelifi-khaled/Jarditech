@@ -16,22 +16,33 @@ namespace Jarditech.ViewModels
 
 
         private  string[] _liste_type_machin = { "TailleHaie", "Tondeuse", "TracteurTondeuse" };
-
-        private const string MACHINS_JSON_FILE = @"C:\Users\Admin\source\repos\Jarditech\JsonMachine.json";
-
+       
 
 
-        public ChoixMachineVM()
+
+
+
+
+        public ChoixMachineVM(MachinCollection machines, ClientCollection clients)
         {
-            AccessjsonMachine = new DataAccessJsn(MACHINS_JSON_FILE, new string[] { "json" });
-            Machines = AccessjsonMachine.GetMachinDatas();
+            Machines = machines;
+            Clients = clients;
 
         }//end ChoixMachineVM
 
        
         public  MachinCollection Machines { get; set; }
 
-        public DataAccessJsn AccessjsonMachine { get; set; }
+
+        public ClientCollection Clients { get; set; }
+
+
+        public  Machines SelectedMachine
+        {
+            get;set;
+        }
+
+
 
 
         public string [] Liste_type_machin 

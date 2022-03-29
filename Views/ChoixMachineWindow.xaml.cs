@@ -11,22 +11,22 @@ namespace Jarditech.Views
     {
         private ChoixMachineVM ChoixVM { get; set; }
 
-        private Machines selectedMachine { get; set; }
+        
 
-        public ChoixMachineWindow()
+        public ChoixMachineWindow(MachinCollection machines , ClientCollection clients)
         {
-            ChoixVM = new ChoixMachineVM();
+            ChoixVM = new ChoixMachineVM(machines,clients);
             DataContext = ChoixVM;
             InitializeComponent();
         }
 
         private void BtnSelectionMachin_Click(object sender, RoutedEventArgs e)
         {
-            selectedMachine = ChoixVM.Nouvelle_machine(ChoixVM.Machin_selecte_name);
-            ChoixVM.Machines.Add(selectedMachine);
-            ChoixVM.AccessjsonMachine.UpdateAllMachinsDatas(ChoixVM.Machines);
+            ChoixVM.SelectedMachine = ChoixVM.Nouvelle_machine(ChoixVM.Machin_selecte_name);
+            
+            ChoixVM.Machines.Add(ChoixVM.SelectedMachine);
 
-            EncodageNouvelleMachineWindow ourmachine = new EncodageNouvelleMachineWindow(selectedMachine);
+            EncodageNouvelleMachineWindow ourmachine = new EncodageNouvelleMachineWindow(ChoixVM.Clients,ChoixVM.SelectedMachine,ChoixVM.Machines);
             ourmachine.Show();
             this.Close();
         }

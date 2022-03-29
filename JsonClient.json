@@ -36,6 +36,15 @@
       "Adress": "1600,kalytous",
       "MailClient": "michel@gmail.com",
       "PhoneClient": "0123456789"
+    },
+    {
+      "$type": "Jarditech.Models.Client, Jarditech",
+      "IdClient": 5,
+      "FirstName": "tetst",
+      "LastName": "jon",
+      "Adress": "Mons7000",
+      "MailClient": "jon@gmail.com",
+      "PhoneClient": "0123456789"
     }
   ]
 }

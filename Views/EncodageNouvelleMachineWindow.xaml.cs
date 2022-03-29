@@ -19,10 +19,9 @@ namespace Jarditech.Views
         }
 
 
-        public EncodageNouvelleMachineWindow(Machines machine )
+        public EncodageNouvelleMachineWindow(ClientCollection clients,Machines machine, MachinCollection machines)
         {
-            MachinesVM = new EncodageNouvelleMachineVM();
-            MachinesVM.ThisMachine = machine;
+            MachinesVM = new EncodageNouvelleMachineVM(clients, machine, machines);
             DataContext = MachinesVM;
             InitializeComponent();
         }
@@ -34,7 +33,7 @@ namespace Jarditech.Views
 
         private void Fiche_Client_Click(object sender, RoutedEventArgs e)
         {
-            EncodageClientWindow FicheClient = new EncodageClientWindow(MachinesVM.ClientSelected,MachinesVM.Clients,MachinesVM.ClientDataAccess);
+            EncodageClientWindow FicheClient = new EncodageClientWindow(MachinesVM.ClientSelected);
             FicheClient.Show();
         }
     }

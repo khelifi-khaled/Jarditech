@@ -29,7 +29,6 @@ namespace Jarditech.Views
     {
         //prop sur le main pour utiliser dans lous Butons 
 
-        public ClientCollection Clients { get; set; }
         public MainWindowVM MainVM { get; set; }
 
 
@@ -54,17 +53,20 @@ namespace Jarditech.Views
         private void Sauver_Click(object sender, RoutedEventArgs e)
         {
             MainVM.AccessjsonClient.UpdateAllClientsDatas(MainVM.Clients);
+            MainVM.AccessjsonMachine.UpdateAllMachinsDatas(MainVM.Machines);
+
         }
 
         private void NewMachine_Click(object sender, RoutedEventArgs e)
         {
-            ChoixMachineWindow Choix = new ChoixMachineWindow();
+            ChoixMachineWindow Choix = new ChoixMachineWindow(MainVM.Machines, MainVM.Clients);
             Choix.Show();
         }
 
         private void NewNewClient_Click(object sender, RoutedEventArgs e)
         {   
-            EncodageClientWindow client = new EncodageClientWindow(null,MainVM.Clients,MainVM.AccessjsonClient);
+            Client c = new Client();
+            EncodageClientWindow client = new EncodageClientWindow(MainVM.Clients, c);
             client.Show();
         }
 

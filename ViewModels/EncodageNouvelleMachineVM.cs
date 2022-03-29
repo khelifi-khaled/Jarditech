@@ -15,29 +15,23 @@ namespace Jarditech.ViewModels
         private Client _clientSelected;
         private Machines _thisMachine;
 
-        private const string CLIENTS_JSON_FILE = @"C:\Users\Admin\source\repos\Jarditech\JsonClient.json";
-        private const string MACHINS_JSON_FILE = @"C:\Users\Admin\source\repos\Jarditech\JsonMachine.json";
+        
 
 
-        public EncodageNouvelleMachineVM()
+        public EncodageNouvelleMachineVM(ClientCollection clients,Machines m , MachinCollection machines )
         {
-            AccessjsonMachine = new DataAccessJsn(MACHINS_JSON_FILE, new string[] { "json" });
-            AccessjsonClient = new DataAccessJsn(CLIENTS_JSON_FILE, new string[] { "json" });
-            Machines = AccessjsonMachine.GetMachinDatas();
-            Clients = AccessjsonClient.GetClientDatas();
-
+            Clients = clients;
+            ThisMachine = m;
+            Machins = machines;
         }
 
         //collection of clients 
         public ClientCollection Clients { get; set; }
 
-        public MachinCollection Machines { get; set; }
+        public MachinCollection Machins { get;set; }
 
-        public DataAccessJsn AccessjsonMachine { get; set; }
-        public DataAccessJsn AccessjsonClient { get; set; }
 
-        //for reading our JsonFile 
-        public DataAccess ClientDataAccess { get; set; }
+
 
 
         public Machines ThisMachine
@@ -64,7 +58,7 @@ namespace Jarditech.ViewModels
 
                 _clientSelected = clients.Find(c => c.FirstName.Equals(ClientNameSelected)); //trouver le client qui correspond au nom choisi 
 
-                ThisMachine.ClientName = _clientSelected.FirstName;//affectation  de nom de client a la machine 
+               // ThisMachine.ClientName = _clientSelected.FirstName;//affectation  de nom de client a la machine 
                 return _clientSelected;
                 
             }
