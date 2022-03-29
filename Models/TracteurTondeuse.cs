@@ -12,8 +12,8 @@ namespace Jarditech.Models
         private double _priceBattery;
 
 
-        public TracteurTondeuse(Client client, int idMachine = 0, string constructeurMachine = "", string referenceMachine = "", string descriptionClient = "", string workDescription = "", bool entretenir = false, bool repar = false, double price = 0.0, int workTime = 0, bool replaceBattery = false, double priceBattery = 0.0)
-           : base(client, idMachine, constructeurMachine, referenceMachine, descriptionClient, workDescription, entretenir, repar, price, workTime)
+        public TracteurTondeuse(string clientName, int idMachine = 0, string constructeurMachine = "", string referenceMachine = "", string descriptionClient = "", string workDescription = "", bool entretenir = false, bool repar = false, double price = 0.0, int workTime = 0, bool replaceBattery = false, double priceBattery = 0.0)
+           : base(clientName, idMachine, constructeurMachine, referenceMachine, descriptionClient, workDescription, entretenir, repar, price, workTime)
         {
             _replaceBattery = replaceBattery;
             _priceBattery = priceBattery;
@@ -21,6 +21,9 @@ namespace Jarditech.Models
         }//end constr TailleHaie 
 
         public TracteurTondeuse() { }
+
+        public TracteurTondeuse(DateTime depoDate, DateTime retraitDate) : base(depoDate, retraitDate) { }
+
 
 
         public bool ReplaceBattery

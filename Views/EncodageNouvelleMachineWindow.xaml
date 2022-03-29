@@ -1,0 +1,67 @@
+﻿<Window x:Class="Jarditech.Views.EncodageNouvelleMachineWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Jarditech.Views" xmlns:viewmodels="clr-namespace:Jarditech.ViewModels" d:DataContext="{d:DesignInstance Type=viewmodels:EncodageNouvelleMachineVM}"
+        mc:Ignorable="d"
+        Title="EncodageNouvelleMachineWindow" Height="500" Width="800">
+    <StackPanel>
+        <Grid Height="426">
+            <Grid.ColumnDefinitions >
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width ="*"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.Column="0">
+                <!-- N° machine-->
+                <Label Content="N° :"/>
+                <TextBox x:Name="NumMachine" Width="200" IsReadOnly="True" Background="#eee" HorizontalAlignment="Left" Text="{Binding Path=ThisMachine.IdMachine , UpdateSourceTrigger=PropertyChanged}"  />
+                <!--Constructeur-->
+                <Label Content="Constructeur :"/>
+                <TextBox x:Name="ConstructeurMachine" Width="200" HorizontalAlignment="Left" Text="{Binding Path=ThisMachine.ConstructeurMachine , UpdateSourceTrigger=PropertyChanged}"   />
+                <!--Référence-->
+                <Label Content="Référence :"/>
+                <TextBox x:Name="RefMachine" Width="200" HorizontalAlignment="Left" Text="{Binding Path=ThisMachine.ReferenceMachine , UpdateSourceTrigger=PropertyChanged}"   />
+                <!--Date de de depo-->
+                <Label Content="Date de depo :"/>
+                <TextBox x:Name="depoMachine" Width="200" HorizontalAlignment="Left" Text="{Binding Path= ThisMachine.DepoDate , UpdateSourceTrigger=PropertyChanged}"  />
+                <!--Date normale de retrait-->
+                <Label Content="Date normale de retrait :"/>
+                <TextBox x:Name="retraitMachine" Width="200" HorizontalAlignment="Left" IsReadOnly="True" Text="{Binding Path= ThisMachine.RetraitDate , UpdateSourceTrigger=PropertyChanged}"  />
+                <!--Entretien-->
+                <Label Content="Entretien"/>
+                <CheckBox x:Name="EntretienMachine" Width="20" HorizontalAlignment="Left" Margin="10 0 0 0" IsEnabled="True" />
+                <!--Réparation-->
+                <Label Content="Réparation"/>
+                <CheckBox x:Name="repMachine" Width="20" HorizontalAlignment="Left" Margin="10 0 0 0" IsEnabled="True" />
+                <!--Affutage-->
+                <Label Content="Affutage"/>
+                <CheckBox x:Name="AffutageMachine" Width="20" HorizontalAlignment="Left" Margin="10 0 0 0" IsEnabled="{Binding Path=IsTailleHaie, UpdateSourceTrigger=PropertyChanged}" />
+                <!--Remplacement batterie-->
+                <Label Content="Remplacement batterie :"/>
+                <CheckBox x:Name="batterieMachine" Width="20" HorizontalAlignment="Left" Margin="10 0 0 0" IsEnabled="True" />
+                <!--Button Quitter -->
+                <Button x:Name="BtnQuitter" Content="Quitter" Width="200" Height="20" HorizontalAlignment="Left" Margin="100 10 0 0" Click="BtnQuitter_Click" />
+            
+            </StackPanel>
+            
+            <StackPanel Grid.Column="1"  >
+                <Label Content="Clients" Margin="60 0 0 0"/>
+                <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+                    <ComboBox x:Name="ComboBoxClient" ItemsSource="{Binding ClientsNames, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding ClientNameSelected}" Width="150" Height="20"  />
+                    <Button x:Name="Fiche_Client" Content="Fiche Client" Width="100" Height="20" HorizontalAlignment="Center"  Click="Fiche_Client_Click" Margin="10"  />
+                </StackPanel>
+
+                <Label Content="Description client :" Margin="60 0 0 0"/>
+                <TextBlock x:Name="DiscriptionMachin" Text="" Width="327" Height="70" HorizontalAlignment="Right" Margin="0 0 10 0"/>
+
+
+            </StackPanel>
+
+
+
+
+        </Grid>
+        
+    </StackPanel>
+</Window>

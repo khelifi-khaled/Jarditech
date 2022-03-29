@@ -13,6 +13,10 @@ namespace Jarditech.ViewModels
         private Client _clientEnCoursEncodage;
 
 
+
+      
+
+
         private const string CLIENTS_JSON_FILE = @"C:\Users\Admin\source\repos\Jarditech\JsonClient.json";
 
 
@@ -22,7 +26,8 @@ namespace Jarditech.ViewModels
         {
             ClientDataAccess = new DataAccessJsn(CLIENTS_JSON_FILE, new string[] { "json" });
             Clients = ClientDataAccess.GetClientDatas();
-            
+            ClientEnCoursEncodage = new Client();
+
         }
 
 
@@ -55,15 +60,44 @@ namespace Jarditech.ViewModels
 
             set
             {
-                _clientEnCoursEncodage = value;
-                OnPropertyChanged(nameof(ClientEnCoursEncodage));
+               if (ClientEnCoursEncodage==null)
+                {
+                    _clientEnCoursEncodage = new Client ();
+                    OnPropertyChanged(nameof(ClientEnCoursEncodage));
+                }
+               else
+                {
+                    _clientEnCoursEncodage = value;
+                    OnPropertyChanged(nameof(ClientEnCoursEncodage));
+                }
 
             }
+
+
         }
 
-      
 
-      
+
+
+        public  int BuildIdClient()
+
+        {
+
+            int id = 0;
+
+            if (Clients == null)
+            {
+                id = 1;
+            }
+            else
+            {
+                id = Clients.Count + 1;
+            }
+
+            return id;
+
+        }//end BuildIdClient
+
 
 
 

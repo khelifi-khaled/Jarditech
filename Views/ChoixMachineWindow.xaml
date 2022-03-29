@@ -5,10 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Jarditech.Views"
         mc:Ignorable="d"
-        Title="ChoixMachineWindow" Height="450" Width="800">
+        Title="ChoixMachineWindow" Height="450" Width="800" >
     <StackPanel>
         <Label Content="Type de machine :"  HorizontalAlignment="Center" Margin="0 50 205 10"/>
-        <!--<ComboBox x:Name="ComboBoxTypesMachine" Width="300" HorizontalAlignment="Center" Padding="2"  /> -->
+
+        <ComboBox x:Name="ComboBoxTypesMachine" ItemsSource="{Binding Path=Liste_type_machin , UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding Path=Machin_selecte_name}" Width="300" HorizontalAlignment="Center" Padding="2"  /> 
+        
+        
         <Button x:Name="BtnSelectionMachin" Content="Créer" Click="BtnSelectionMachin_Click" Margin="0 110 0 0" Width="300" />
 
     </StackPanel>

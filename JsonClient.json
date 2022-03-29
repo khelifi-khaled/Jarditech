@@ -3,93 +3,39 @@
   "$values": [
     {
       "$type": "Jarditech.Models.Client, Jarditech",
-      "IdClient": 2,
+      "IdClient": 1,
       "FirstName": "khaled",
       "LastName": "khelifi",
-      "Adress": "Mons",
-      "MailClient": "khaled@gmail.com",
-      "PhoneClient": "0123456456"
+      "Adress": "7000,Mons",
+      "MailClient": "khelifi.khaled55@gmail.com",
+      "PhoneClient": "0467833158"
     },
     {
       "$type": "Jarditech.Models.Client, Jarditech",
       "IdClient": 2,
-      "FirstName": "tot",
-      "LastName": "tot",
-      "Adress": "Mons",
-      "MailClient": "khaled@totogmail.com",
-      "PhoneClient": "tototot"
+      "FirstName": "podvin",
+      "LastName": "remi",
+      "Adress": "chararba 1616,charleroi",
+      "MailClient": "rr@gmail.com",
+      "PhoneClient": "04567891234"
     },
     {
       "$type": "Jarditech.Models.Client, Jarditech",
       "IdClient": 3,
-      "FirstName": "",
-      "LastName": "khaled",
-      "Adress": "",
-      "MailClient": "",
-      "PhoneClient": ""
+      "FirstName": "mathilde",
+      "LastName": "dpdt",
+      "Adress": "7000,Mons",
+      "MailClient": "dpdt@gmail.com",
+      "PhoneClient": "0123456789"
     },
     {
       "$type": "Jarditech.Models.Client, Jarditech",
       "IdClient": 4,
-      "FirstName": "khaled",
-      "LastName": "toto",
-      "Adress": "Mons",
-      "MailClient": "khaled@gmail.com",
-      "PhoneClient": "totot"
-    },
-    {
-      "$type": "Jarditech.Models.Client, Jarditech",
-      "IdClient": 5,
-      "FirstName": "dfgdfg",
-      "LastName": "sdfsgfd",
-      "Adress": "dfgdfg",
-      "MailClient": "dfgdfg",
-      "PhoneClient": "dfgdfg"
-    },
-    {
-      "$type": "Jarditech.Models.Client, Jarditech",
-      "IdClient": 10,
-      "FirstName": "zefzefz",
-      "LastName": "dfgdfgdfgfdg",
-      "Adress": "",
-      "MailClient": "zefzef",
-      "PhoneClient": ""
-    },
-    {
-      "$type": "Jarditech.Models.Client, Jarditech",
-      "IdClient": 10,
-      "FirstName": "zefzefz",
-      "LastName": "dfgdfgdfgfdg",
-      "Adress": "",
-      "MailClient": "zefzef",
-      "PhoneClient": ""
-    },
-    {
-      "$type": "Jarditech.Models.Client, Jarditech",
-      "IdClient": 10,
-      "FirstName": "zefzefz",
-      "LastName": "dfgdfgdfgfdg",
-      "Adress": "",
-      "MailClient": "zefzef",
-      "PhoneClient": ""
-    },
-    {
-      "$type": "Jarditech.Models.Client, Jarditech",
-      "IdClient": 10,
-      "FirstName": "zefzefz",
-      "LastName": "dfgdfgdfgfdg",
-      "Adress": "",
-      "MailClient": "zefzef",
-      "PhoneClient": ""
-    },
-    {
-      "$type": "Jarditech.Models.Client, Jarditech",
-      "IdClient": 10,
-      "FirstName": "zefzefz",
-      "LastName": "dfgdfgdfgfdg",
-      "Adress": "",
-      "MailClient": "zefzef",
-      "PhoneClient": ""
+      "FirstName": "lalou",
+      "LastName": "michel",
+      "Adress": "1600,kalytous",
+      "MailClient": "michel@gmail.com",
+      "PhoneClient": "0123456789"
     }
   ]
 }

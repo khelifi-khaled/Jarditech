@@ -1,16 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Jarditech.Models;
+using Jarditech.ViewModels;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace Jarditech.Views
 {
@@ -19,16 +9,27 @@ namespace Jarditech.Views
     /// </summary>
     public partial class ChoixMachineWindow : Window
     {
+        private ChoixMachineVM ChoixVM { get; set; }
+
+        private Machines selectedMachine { get; set; }
 
         public ChoixMachineWindow()
         {
-
+            ChoixVM = new ChoixMachineVM();
+            DataContext = ChoixVM;
             InitializeComponent();
         }
 
         private void BtnSelectionMachin_Click(object sender, RoutedEventArgs e)
         {
+            selectedMachine = ChoixVM.Nouvelle_machine(ChoixVM.Machin_selecte_name);
+            ChoixVM.Machines.Add(selectedMachine);
+            ChoixVM.AccessjsonMachine.UpdateAllMachinsDatas(ChoixVM.Machines);
 
+            EncodageNouvelleMachineWindow ourmachine = new EncodageNouvelleMachineWindow(selectedMachine);
+            ourmachine.Show();
+            this.Close();
         }
+
     }
 }

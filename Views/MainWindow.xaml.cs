@@ -53,18 +53,18 @@ namespace Jarditech.Views
 
         private void Sauver_Click(object sender, RoutedEventArgs e)
         {
-            //EncodageClientVM.ClientDataAccess.UpdateAllClientsDatas(EncodageClientVM.Clients);
+            MainVM.AccessjsonClient.UpdateAllClientsDatas(MainVM.Clients);
         }
 
         private void NewMachine_Click(object sender, RoutedEventArgs e)
         {
-            
+            ChoixMachineWindow Choix = new ChoixMachineWindow();
+            Choix.Show();
         }
 
         private void NewNewClient_Click(object sender, RoutedEventArgs e)
-        {
-            
-            EncodageClientWindow client = new EncodageClientWindow(MainVM.Clients,MainVM.AccessjsonClient);
+        {   
+            EncodageClientWindow client = new EncodageClientWindow(null,MainVM.Clients,MainVM.AccessjsonClient);
             client.Show();
         }
 

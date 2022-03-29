@@ -9,23 +9,23 @@
     <StackPanel>
         <!-- Numero de  Client -->
         <Label Content="N°"/>
-        <TextBox x:Name="NumClient" Width="200" IsReadOnly="True"  HorizontalAlignment="Left" Text ="{Binding Path=IdClient , UpdateSourceTrigger=PropertyChanged}" Background="#eee"/>
+        <TextBox x:Name="NumClient" Width="200" IsReadOnly="True"  HorizontalAlignment="Left" Text ="{Binding Path=ClientEnCoursEncodage.IdClient , UpdateSourceTrigger=PropertyChanged}" Background="#eee"/>
 
         <!-- le nom de  Client -->
         <Label Content="Nom :"/>
-        <TextBox x:Name="NomClient" Width="200" HorizontalAlignment="Left"  Text="{Binding Path=LastName,UpdateSourceTrigger=PropertyChanged}" />
+        <TextBox x:Name="NomClient" Width="200" HorizontalAlignment="Left"  Text="{Binding Path=ClientEnCoursEncodage.LastName,UpdateSourceTrigger=PropertyChanged}" />
         <!-- le Prenom de  Client -->
         <Label Content="PreNom :"/>
-        <TextBox x:Name="PreNomClient" Width="200" HorizontalAlignment="Left" Text="{Binding Path=FirstName , UpdateSourceTrigger=PropertyChanged}" />
+        <TextBox x:Name="PreNomClient" Width="200" HorizontalAlignment="Left" Text="{Binding Path=ClientEnCoursEncodage.FirstName , UpdateSourceTrigger=PropertyChanged}" />
         <!-- le Email de  Client -->
         <Label Content="Email :"/>
-        <TextBox x:Name="EmailClient" Width="200" HorizontalAlignment="Left" Text="{Binding Path=MailClient  , UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBox x:Name="EmailClient" Width="200" HorizontalAlignment="Left" Text="{Binding Path=ClientEnCoursEncodage.MailClient  , UpdateSourceTrigger=PropertyChanged}"/>
         <!-- le Téléphone de  Client-->
         <Label Content="N°Tel. :"/>
-        <TextBox x:Name="PhoneClient" Width="200" HorizontalAlignment="Left" Text="{Binding Path=PhoneClient , UpdateSourceTrigger=PropertyChanged}" />
+        <TextBox x:Name="PhoneClient" Width="200" HorizontalAlignment="Left" Text="{Binding Path=ClientEnCoursEncodage.PhoneClient , UpdateSourceTrigger=PropertyChanged}" />
         <!-- l'address de  Client-->
         <Label Content="Adress :"/>
-        <TextBox x:Name="AdressClient" Width="200" HorizontalAlignment="Left" Text="{Binding Path=Adress , UpdateSourceTrigger=PropertyChanged}" />
+        <TextBox x:Name="AdressClient" Width="200" HorizontalAlignment="Left" Text="{Binding Path=ClientEnCoursEncodage.Adress , UpdateSourceTrigger=PropertyChanged}" />
         <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
             <Button
                 x:Name="ButtonNew"

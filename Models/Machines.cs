@@ -20,7 +20,7 @@ namespace Jarditech.Models
         private string _referenceMachine;
         private DateTime _depoDate;
         private DateTime _retraitDate;
-        private Client _client;
+        private string _clientName;
         private string _descriptionClient;
         private string _workDescription;
         private bool _entretenir;
@@ -34,12 +34,18 @@ namespace Jarditech.Models
         public Machines() { }
 
 
-        public Machines(Client client, int idMachine = 0, string constructeurMachine = "", string referenceMachine = "", string descriptionClient = "", string workDescription = "", bool entretenir = false, bool repar = false, double price = 0.0,int workTime=0)
+        public Machines(DateTime depoDate,DateTime retraitDate) 
+        {
+            _depoDate = depoDate;
+            _retraitDate = retraitDate;
+        }
+
+        public Machines(string clientName, int idMachine = 0, string constructeurMachine = "", string referenceMachine = "", string descriptionClient = "", string workDescription = "", bool entretenir = false, bool repar = false, double price = 0.0,int workTime=0)
         {
             _idMachin = idMachine;
             _constructeurMachine = constructeurMachine;
             _referenceMachine = referenceMachine;
-            _client = client;
+            _clientName = clientName;
             _descriptionClient = descriptionClient;
             _workDescription = workDescription;
             _entretenir = entretenir;
@@ -93,7 +99,7 @@ namespace Jarditech.Models
             }
         }
 
-        protected DateTime DepoDate
+        public  DateTime DepoDate
         {
             get
             {
@@ -107,7 +113,7 @@ namespace Jarditech.Models
         }
 
 
-        protected DateTime RetraitDate
+        public  DateTime RetraitDate
         {
             get
             {
@@ -121,13 +127,13 @@ namespace Jarditech.Models
 
 
 
-        public Client Client
+        public string ClientName
         {
-            get { return _client; }
+            get { return _clientName; }
 
             set
             {
-                _client = value;
+                _clientName = value;
             }
         }
 

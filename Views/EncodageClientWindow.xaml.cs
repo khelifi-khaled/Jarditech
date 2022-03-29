@@ -1,5 +1,6 @@
 ﻿using Jarditech.Models;
 using Jarditech.Utilities.DataAccess;
+using Jarditech.ViewModels;
 using System.Windows;
 
 
@@ -11,40 +12,34 @@ namespace Jarditech.Views
     public partial class EncodageClientWindow : Window
 
     {
-        
 
-
-        private Client ThisClient { get; set; }
-
-        private DataAccess ClientsDataAccess { get; set; }
-
-        private ClientCollection Clients { get; set; }
-
-
-
-        public EncodageClientWindow( ClientCollection Clts ,  DataAccess CDataAccess)
+        public EncodageClientWindowVM  EncodageVM
         {
+            get; set;
+        }
+    
 
-            ThisClient = new Client ();
-            Clients = Clts;
-            DataContext = ThisClient;
-            ClientsDataAccess = CDataAccess;
+        public  ClientCollection Clients { get; set; }
+
+
+
+        public EncodageClientWindow(Client c , ClientCollection Clts ,  DataAccess CDataAccess)
+        {
+            EncodageVM = new EncodageClientWindowVM();
+            DataContext = EncodageVM;
             InitializeComponent();
-
 
         }//end EncodageClientWindow
 
 
-        public EncodageClientWindow(Client C, ClientCollection Clts, DataAccess CDataAccess)
+        public EncodageClientWindow(Client c )
         {
-            ThisClient = C;
-            Clients = Clts;
-            DataContext = ThisClient;
-            ClientsDataAccess = CDataAccess;
+            EncodageVM = new EncodageClientWindowVM();
+            DataContext = EncodageVM;
             InitializeComponent();
 
+        }//end EncodageClientWindow V2
 
-        }//end EncodageClientWindow
 
 
 
@@ -54,65 +49,45 @@ namespace Jarditech.Views
 
             // check si la list des  clients vide ou pas 
 
-            if (Clients == null)
+            if (EncodageVM.Clients == null)
             {
-                Clients = new ClientCollection();
+                EncodageVM.Clients = new ClientCollection();
 
             }
 
+            EncodageVM.ClientEnCoursEncodage.IdClient = EncodageVM.BuildIdClient();
 
-            Clients.Add(ThisClient);
+            EncodageVM.Clients.Add(EncodageVM.ClientEnCoursEncodage);
+
+           
+
+            MessageBox.Show($"le client {EncodageVM.ClientEnCoursEncodage.LastName} {EncodageVM.ClientEnCoursEncodage.FirstName} a été bien ajouté à la liste des clients" , "Nouveau Client ");
 
 
-            MessageBox.Show($"le client {ThisClient.LastName} {ThisClient.FirstName} a été bien ajouté à la liste des clients" , "Nouveau Client ");
+           NumClient.Text = EncodageVM.ClientEnCoursEncodage.IdClient.ToString();
 
-
-            NumClient.Text = ThisClient.IdClient.ToString();
-
-            //normalement on n'aura pas besoin de ça demain la sauvegard se fais aprés
-            //le ClientEnCoursEncodage est bien enregistrer dans la liste 
-
-            //ClientsDataAccess.UpdateAllClientsDatas(Clients);
-
+            EncodageVM.ClientDataAccess.UpdateAllClientsDatas(EncodageVM.Clients);
 
 
         }//end ButtonSave_Click
 
         private void ButtonCancel_Click(object sender, RoutedEventArgs e)
         {
-            ThisClient = new Client();
+            EncodageVM.ClientEnCoursEncodage =null;
             this.Close();
 
         }//end ButtonCancel_Click
 
         private void ButtonNew_Click(object sender, RoutedEventArgs e)
         {
-
+            EncodageVM.ClientEnCoursEncodage = new Client();
 
 
         }//end ButtonNew_Click
 
 
 
-        private int BuildIdClient()
-
-        {
-
-            int id = 0;
-
-            if (Clients == null)
-            {
-                id = 1;
-            }
-            else
-            {
-                id = Clients.Count + 1;
-            }
-
-            return id;
-
-        }//end BuildIdClient
-
+        
 
 
 
