@@ -31,7 +31,15 @@ namespace Jarditech.Views
 
         }//end EncodageClientWindow
 
-       
+
+        public EncodageClientWindow( Client c)
+        {
+            EncodageVM = new EncodageClientWindowVM( c);
+            DataContext = EncodageVM;
+            InitializeComponent();
+
+        }//end EncodageClientWindow
+
 
 
 

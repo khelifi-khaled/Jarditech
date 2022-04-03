@@ -67,25 +67,6 @@ namespace Jarditech.Views
             client.Show();
         }
 
-        private void ButtonTestCreateClient_Click(object sender, RoutedEventArgs e)
-        {
-            //Client c = new Client("khaled", "khelifi", "Mons", "khaled@gmail.com", "0123456456");
-            //Client c2 = new Client("tot", "tot", "Mons", "khaled@totogmail.com", "tototot");
-            //ClientCollection col = new ClientCollection();
-            //col.Add(c);
-            //col.Add(c2);
-            //DataAccessJsn json = new DataAccessJsn(@"C:\Users\Admin\source\repos\Jarditech\JsonClient.json", new string[] { "json" });
-            //json.UpdateAllClientsDatas(col);
-        }
-
-        private void ButtonTestCreateMachine_Click(object sender, RoutedEventArgs e)
-        {
-            Client c = new Client("toto", "titi", "Mons", "khaled@gmail.com", "01599999999996");
-            TailleHaie t1 = new TailleHaie(c, 15, "reno", "123456", "problem", "lol", true, true, 15.99, 60, true, 20);
-            MachinCollection colm = new MachinCollection();
-            colm.Add(t1);
-            
-        }
 
         private void DataGrid_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
@@ -93,9 +74,10 @@ namespace Jarditech.Views
             repar.Show();
         }
 
-        private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void DataGrid_MouseDoubleClick_1(object sender, MouseButtonEventArgs e)
         {
-
+            EncodageClientWindow ficheClient = new EncodageClientWindow(MainVM.ThisClient);
+            ficheClient.Show();
         }
     }
 }

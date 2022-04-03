@@ -31,7 +31,7 @@
                   SelectionUnit="FullRow"
                   CanUserDeleteRows="False" 
                   Height="Auto"  
-                  AlternatingRowBackground="LightCyan" SelectionChanged="DataGrid_SelectionChanged">
+                  AlternatingRowBackground="LightCyan">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="N°" Binding="{Binding IdMachine}"/>
                 <DataGridTextColumn Header="Date dépôt" Binding="{Binding DepoDate}"/>
@@ -61,12 +61,13 @@
         </DataGrid>
 
         <DataGrid ItemsSource="{Binding Clients, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" 
-                  SelectedItem="{Binding Path=SelClient, Mode=TwoWay}" 
+                  SelectedItem="{Binding Path=ThisClient, Mode=TwoWay}" 
                   AutoGenerateColumns="True" Margin="5 10" 
                   ScrollViewer.CanContentScroll="True"
                   CanUserAddRows="False" HorizontalAlignment="Center"
                   SelectionUnit="FullRow" CanUserDeleteRows="False" 
-                  Height="Auto" AlternatingRowBackground="LightCyan"/>
+                  Height="Auto" AlternatingRowBackground="LightCyan" 
+                  MouseDoubleClick="DataGrid_MouseDoubleClick_1"/>
     </StackPanel>
     
 </Window>

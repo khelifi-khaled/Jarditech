@@ -47,7 +47,10 @@ namespace Jarditech.ViewModels
             }
         }
 
-        
+        public Client ThisClient { get;set; }
+
+
+
 
         public MainWindowVM()
         {
