@@ -57,6 +57,9 @@ namespace Jarditech.ViewModels
             }
         }
 
+
+
+
         public string Machin_selecte_name
         {
             get;set;

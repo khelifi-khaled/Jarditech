@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,7 +13,7 @@ namespace Jarditech.Models
 
         private const int DAYS_OF_WORK = 14;
 
-       
+
 
 
 
@@ -20,13 +22,14 @@ namespace Jarditech.Models
         private string _referenceMachine;
         private DateTime _depoDate;
         private DateTime _retraitDate;
-        private string _clientName;
+        private Client _client;
         private string _descriptionClient;
         private string _workDescription;
         private bool _entretenir;
         private bool _repar;
         private double _price;
         private int _workTime;
+        private string _machineStatus;
 
 
 
@@ -34,18 +37,19 @@ namespace Jarditech.Models
         public Machines() { }
 
 
-        public Machines(DateTime depoDate,DateTime retraitDate) 
+        public Machines(DateTime depoDate, DateTime retraitDate)
         {
             _depoDate = depoDate;
             _retraitDate = retraitDate;
+            
         }
 
-        public Machines(string clientName, int idMachine = 0, string constructeurMachine = "", string referenceMachine = "", string descriptionClient = "", string workDescription = "", bool entretenir = false, bool repar = false, double price = 0.0,int workTime=0)
+        public Machines(Client client, int idMachine = 0, string constructeurMachine = "", string referenceMachine = "", string descriptionClient = "", string workDescription = "", bool entretenir = false, bool repar = false, double price = 0.0, int workTime = 0)
         {
             _idMachin = idMachine;
             _constructeurMachine = constructeurMachine;
             _referenceMachine = referenceMachine;
-            _clientName = clientName;
+            _client = client;
             _descriptionClient = descriptionClient;
             _workDescription = workDescription;
             _entretenir = entretenir;
@@ -57,8 +61,8 @@ namespace Jarditech.Models
 
 
 
- 
 
+        [JsonProperty]
         public int IdMachine
         {
             get
@@ -72,7 +76,7 @@ namespace Jarditech.Models
         }
 
 
-
+        [JsonProperty]
         public string ConstructeurMachine
         {
             get
@@ -81,11 +85,11 @@ namespace Jarditech.Models
             }
             set
             {
-                _constructeurMachine= value;
+                _constructeurMachine = value;
             }
         }
 
-
+        [JsonProperty]
         public string ReferenceMachine
         {
             get
@@ -99,58 +103,62 @@ namespace Jarditech.Models
             }
         }
 
-        public  DateTime DepoDate
+        [JsonProperty]
+        public DateTime DepoDate
         {
             get
             {
-               return _depoDate;
+                return _depoDate;
             }
 
-             set
+            set
             {
                 _depoDate = DateTime.Now;
             }
         }
 
-
-        public  DateTime RetraitDate
+        [JsonProperty]
+        public DateTime RetraitDate
         {
             get
             {
                 return _retraitDate;
             }
-             set
+            set
             {
                 _retraitDate = DepoDate.AddDays(DAYS_OF_WORK);
             }
         }
 
 
-
-        public string ClientName
+        [JsonProperty]
+        public Client Client
         {
-            get { return _clientName; }
+            get { return _client; }
 
             set
             {
-                _clientName = value;
+                _client = value;
             }
         }
 
 
-
+        [JsonProperty]
         public string DescriptionClient
         {
             get
             {
                 return _descriptionClient;
             }
-            set 
-            { 
+            set
+            {
                 _descriptionClient = value;
             }
         }
 
+
+
+        [JsonProperty]
         public string WorkDescription
         {
             get
@@ -163,6 +171,9 @@ namespace Jarditech.Models
             }
         }
 
+
+
+        [JsonProperty]
         public bool Entretenir
         {
             get
@@ -176,6 +187,8 @@ namespace Jarditech.Models
         }
 
 
+
+        [JsonProperty]
         public bool Repar
         {
             get
@@ -184,12 +197,14 @@ namespace Jarditech.Models
             }
             set
             {
-                 _repar=value;
+                _repar = value;
 
             }
         }
 
 
+
+        [JsonProperty]
         public double Price
         {
             get
@@ -202,6 +217,8 @@ namespace Jarditech.Models
             }
         }
 
+
+        [JsonProperty]
         public int WorkTime
         {
             get
@@ -215,7 +232,23 @@ namespace Jarditech.Models
         }
 
 
+        [JsonProperty]
+        public string MachineStatus
+        {
+            get
+            {
+                return _machineStatus;
+            }
+            set
+            {
+                _machineStatus = value;
+            }
+        }
+
+
 
     }//end Class Machines 
+
+  
 
 }//end project Jarditech

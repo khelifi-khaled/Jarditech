@@ -3,48 +3,54 @@
   "$values": [
     {
       "$type": "Jarditech.Models.TailleHaie, Jarditech",
-      "IdMachine": 15,
+      "Sharpening": true,
+      "IdMachine": 1,
       "ConstructeurMachine": "reno",
       "ReferenceMachine": "123456",
-      "DepoDate": "2022-03-29T15:00:45.60016+02:00",
-      "RetraitDate": "2022-04-12T15:00:45.60016+02:00",
-      "ClientName": "toto",
+      "DepoDate": "2022-04-03T15:27:41.8112442+02:00",
+      "RetraitDate": "2022-04-17T15:27:41.8112442+02:00",
+      "Client": {
+        "$type": "Jarditech.Models.Client, Jarditech",
+        "FullName": "maxime lover",
+        "IdClient": 0,
+        "FirstName": "maxime",
+        "LastName": "lover",
+        "Adress": "Mons",
+        "MailClient": "maxime@gmail.com",
+        "PhoneClient": "099999999999"
+      },
       "DescriptionClient": "problem",
-      "WorkDescription": "lol",
+      "WorkDescription": "good",
       "Entretenir": true,
       "Repar": true,
       "Price": 15.99,
-      "WorkTime": 60
+      "WorkTime": 60,
+      "MachineStatus": "Retrait"
     },
     {
       "$type": "Jarditech.Models.Tondeuse, Jarditech",
       "IdMachine": 2,
-      "ConstructeurMachine": "MLDrrcc",
-      "ReferenceMachine": "MLD00001",
-      "DepoDate": "2022-03-29T15:00:45.6305873+02:00",
-      "RetraitDate": "2022-04-12T15:00:45.6305873+02:00",
-      "ClientName": null,
-      "DescriptionClient": "problemme de battrie ",
-      "WorkDescription": null,
-      "Entretenir": false,
-      "Repar": false,
+      "ConstructeurMachine": "IKJ123",
+      "ReferenceMachine": "HREF55842",
+      "DepoDate": "2022-04-03T15:27:41.8689027+02:00",
+      "RetraitDate": "2022-04-17T15:27:41.8689027+02:00",
+      "Client": {
+        "$type": "Jarditech.Models.Client, Jarditech",
+        "FullName": "mathilde dpdt",
+        "IdClient": 3,
+        "FirstName": "mathilde",
+        "LastName": "dpdt",
+        "Adress": "7000,Mons",
+        "MailClient": "mathilde@gmail.com",
+        "PhoneClient": "0467833158"
+      },
+      "DescriptionClient": "problem Test 1",
+      "WorkDescription": "Description Atelier Test1",
+      "Entretenir": true,
+      "Repar": true,
       "Price": 0.0,
-      "WorkTime": 0
-    },
-    {
-      "$type": "Jarditech.Models.Tondeuse, Jarditech",
-      "IdMachine": 3,
-      "ConstructeurMachine": "labole",
-      "ReferenceMachine": "TB00175HHT",
-      "DepoDate": "2022-03-29T15:00:45.6409463+02:00",
-      "RetraitDate": "2022-04-12T15:00:45.6409463+02:00",
-      "ClientName": null,
-      "DescriptionClient": null,
-      "WorkDescription": null,
-      "Entretenir": false,
-      "Repar": false,
-      "Price": 0.0,
-      "WorkTime": 0
+      "WorkTime": 60,
+      "MachineStatus": "Reparation_En_Cours"
     }
   ]
 }

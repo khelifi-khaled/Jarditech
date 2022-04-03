@@ -31,15 +31,10 @@ namespace Jarditech.Views
 
         public MainWindowVM MainVM { get; set; }
 
+       
 
-
-
-
-
-
-        public MainWindow()
+    public MainWindow()
         {
-         
             MainVM = new MainWindowVM();
             DataContext = MainVM;
             InitializeComponent();
@@ -55,12 +50,14 @@ namespace Jarditech.Views
             MainVM.AccessjsonClient.UpdateAllClientsDatas(MainVM.Clients);
             MainVM.AccessjsonMachine.UpdateAllMachinsDatas(MainVM.Machines);
 
+            MessageBox.Show($"Sauvegarde de toutes les données effectuées");
+
         }
 
         private void NewMachine_Click(object sender, RoutedEventArgs e)
         {
-            ChoixMachineWindow Choix = new ChoixMachineWindow(MainVM.Machines, MainVM.Clients);
-            Choix.Show();
+            ChoixMachineWindow ChoixMachine = new ChoixMachineWindow(MainVM.Machines, MainVM.Clients);
+            ChoixMachine.Show();
         }
 
         private void NewNewClient_Click(object sender, RoutedEventArgs e)
@@ -83,15 +80,20 @@ namespace Jarditech.Views
 
         private void ButtonTestCreateMachine_Click(object sender, RoutedEventArgs e)
         {
-            //Client c = new Client("toto", "titi", "Mons", "khaled@gmail.com", "01599999999996");
-            //TailleHaie t1 = new TailleHaie(c,15,"reno","123456","problem","lol",true,true,15.99,60,true,20);
-            //MachinCollection colm = new MachinCollection();
-            //colm.Add(t1);
-            //DataAccessJsn jsonm = new DataAccessJsn(@"C:\Users\Admin\source\repos\Jarditech\JsonMachine.json", new string[] { "json" });
-            //jsonm.UpdateAllMachinsDatas(colm);
+            Client c = new Client("toto", "titi", "Mons", "khaled@gmail.com", "01599999999996");
+            TailleHaie t1 = new TailleHaie(c, 15, "reno", "123456", "problem", "lol", true, true, 15.99, 60, true, 20);
+            MachinCollection colm = new MachinCollection();
+            colm.Add(t1);
+            
         }
 
         private void DataGrid_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            RepairMachineWindow repar = new RepairMachineWindow(MainVM.SelMachine,MainVM.SelMachine.Client, MainVM.Clients);
+            repar.Show();
+        }
+
+        private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
         }

@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Jarditech.Views"
+        xmlns:local="clr-namespace:Jarditech.Views" xmlns:viewmodels="clr-namespace:Jarditech.ViewModels" d:DataContext="{d:DesignInstance Type=viewmodels:MainWindowVM}"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <StackPanel>
@@ -21,12 +21,52 @@
             </MenuItem>
         </Menu>
         <DataGrid ItemsSource="{Binding Machines, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" 
-                  SelectedItem="{Binding Path=SelMachine, Mode=TwoWay}" 
+                  SelectedItem="{Binding Path=SelMachine, Mode=TwoWay}"  
                   MouseDoubleClick="DataGrid_MouseDoubleClick" 
-                  
-                  AutoGenerateColumns="True" Margin="5 10" ScrollViewer.CanContentScroll="True" CanUserAddRows="False" HorizontalAlignment="Center" SelectionUnit="FullRow" CanUserDeleteRows="False" Height="Auto" AlternatingRowBackground="LightCyan"/>
-        <Button x:Name="ButtonTestCreateClient" Content="Test Create Client" HorizontalAlignment="Right" Width="150" Click="ButtonTestCreateClient_Click"/>
-        <Button x:Name="ButtonTestCreateMachine" Content="Test Create Machine" HorizontalAlignment="Right" Width="150" Click="ButtonTestCreateMachine_Click"/>
+                  AutoGenerateColumns="False" 
+                  Margin="5 10" 
+                  ScrollViewer.CanContentScroll="True" 
+                  CanUserAddRows="False"
+                  HorizontalAlignment="Center"
+                  SelectionUnit="FullRow"
+                  CanUserDeleteRows="False" 
+                  Height="Auto"  
+                  AlternatingRowBackground="LightCyan" SelectionChanged="DataGrid_SelectionChanged">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="N°" Binding="{Binding IdMachine}"/>
+                <DataGridTextColumn Header="Date dépôt" Binding="{Binding DepoDate}"/>
+                <DataGridTextColumn Header="Date retrai" Binding="{Binding RetraitDate}"/>
+                <DataGridTextColumn Header="Constructeur" Binding="{Binding ConstructeurMachine}"/>
+                <DataGridTextColumn Header="Référence" Binding="{Binding ReferenceMachine}"/>
+                <DataGridTextColumn Header="Client" Binding="{Binding Path=Client.FullName,UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Statut" Binding="{Binding MachineStatus}"/>
+                <DataGridTemplateColumn Header="Entretien">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <CheckBox IsChecked="{Binding Entretenir}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="Réparation">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <CheckBox IsChecked="{Binding Repar}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTextColumn Header="Description Client" Binding="{Binding DescriptionClient}"/>
+                <DataGridTextColumn Header="Description Atelier" Binding="{Binding WorkDescription}"/>
+                <DataGridTextColumn Header="Temp de travail" Binding="{Binding WorkTime}"/>
+            </DataGrid.Columns>
+        </DataGrid>
 
+        <DataGrid ItemsSource="{Binding Clients, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" 
+                  SelectedItem="{Binding Path=SelClient, Mode=TwoWay}" 
+                  AutoGenerateColumns="True" Margin="5 10" 
+                  ScrollViewer.CanContentScroll="True"
+                  CanUserAddRows="False" HorizontalAlignment="Center"
+                  SelectionUnit="FullRow" CanUserDeleteRows="False" 
+                  Height="Auto" AlternatingRowBackground="LightCyan"/>
     </StackPanel>
+    
 </Window>

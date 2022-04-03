@@ -18,38 +18,48 @@ namespace Jarditech.Models
 
         }//end AddClient
 
-        public Machines Nouvelle_machine(string machinSelected)
+        public Machines New_machine(string machinSelected)
         {
-            if (machinSelected.Equals("TailleHaie"))
+            if (!string.IsNullOrEmpty(machinSelected))
             {
-                TailleHaie t = new TailleHaie(DateTime.Now, DateTime.Now.AddDays(14));
-                t.IdMachine = bildIdMachine();
-                return t;
-            }
-            else if (machinSelected.Equals("Tondeuse"))
-            {
-                Tondeuse tn = new Tondeuse(DateTime.Now, DateTime.Now.AddDays(14));
-                tn.IdMachine = bildIdMachine();
-                return tn;
+                if (machinSelected.Equals("TailleHaie"))
+                {
+                    TailleHaie t = new TailleHaie(DateTime.Now,DateTime.Now.AddDays(14));
+                    t.IdMachine = bildIdMachine();
+                    return t;
+                }
+                else if (machinSelected.Equals("Tondeuse"))
+                {
+                    Tondeuse tn = new Tondeuse(DateTime.Now, DateTime.Now.AddDays(14));
+                    tn.IdMachine = bildIdMachine();
+                    return tn;
+                }
+                else 
+                {
+                    TracteurTondeuse tt = new TracteurTondeuse(DateTime.Now, DateTime.Now.AddDays(14));
+                    tt.IdMachine = bildIdMachine();
+                    return tt;
+                }
+               
             }
             else
             {
-                TracteurTondeuse tt = new TracteurTondeuse(DateTime.Now, DateTime.Now.AddDays(14));
-                tt.IdMachine = bildIdMachine();
-                return tt;
+                return null;
             }
 
-            /// <summary>
-            /// a method for counting IdMachind
-            /// </summary>
-            /// <returns> integer IdMachind </returns>
+           
+        }
 
-            int bildIdMachine()
+        /// <summary>
+        /// a method for counting IdMachind
+        /// </summary>
+        /// <returns> integer IdMachind </returns>
 
-            {
-                if (this.Count == 0) { return 1; }
-                else return this.Count + 1;
-            }
+        public int bildIdMachine()
+
+        {
+            if (this.Count == 0) { return 1; }
+            else return this.Count + 1;
         }
 
     }//end class 

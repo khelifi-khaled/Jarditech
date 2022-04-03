@@ -31,42 +31,19 @@ namespace Jarditech.Views
 
         }//end EncodageClientWindow
 
-        public EncodageClientWindow( Client c)
-        {
-            EncodageVM = new EncodageClientWindowVM( c);
-            DataContext = EncodageVM;
-            InitializeComponent();
+       
 
-        }//end EncodageClientWindow
+
 
 
 
 
         private void ButtonSave_Click(object sender, RoutedEventArgs e)
         {
-            
-
-            // check si la list des  clients vide ou pas 
-
-            if (EncodageVM.Clients == null)
-            {
-                EncodageVM.Clients = new ClientCollection();
-
-            }
-
-            EncodageVM.ClientEnCoursEncodage.IdClient = EncodageVM.BuildIdClient();
-
-            EncodageVM.Clients.Add(EncodageVM.ClientEnCoursEncodage);
-
-           
-
-            MessageBox.Show($"le client {EncodageVM.ClientEnCoursEncodage.LastName} {EncodageVM.ClientEnCoursEncodage.FirstName} a été bien ajouté à la liste des clients" , "Nouveau Client ");
-
-
-           NumClient.Text = EncodageVM.ClientEnCoursEncodage.IdClient.ToString();
-
-
-
+                EncodageVM.Clients.Add(EncodageVM.ClientEnCoursEncodage);
+                EncodageVM.ClientEnCoursEncodage.IdClient = EncodageVM.BuildIdClient();
+                MessageBox.Show($"le client {EncodageVM.ClientEnCoursEncodage.LastName} {EncodageVM.ClientEnCoursEncodage.FirstName} a été bien ajouté à la liste des clients", "Nouveau Client ");
+                NumClient.Text = EncodageVM.ClientEnCoursEncodage.IdClient.ToString();
         }//end ButtonSave_Click
 
         private void ButtonCancel_Click(object sender, RoutedEventArgs e)

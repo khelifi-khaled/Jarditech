@@ -27,19 +27,19 @@
                 <TextBox x:Name="depoMachine" Width="200" HorizontalAlignment="Left" Text="{Binding Path= ThisMachine.DepoDate , UpdateSourceTrigger=PropertyChanged}"  />
                 <!--Date normale de retrait-->
                 <Label Content="Date normale de retrait :"/>
-                <TextBox x:Name="retraitMachine" Width="200" HorizontalAlignment="Left" IsReadOnly="True" Text="{Binding Path= ThisMachine.RetraitDate , UpdateSourceTrigger=PropertyChanged}"  />
+                <TextBox x:Name="retraitMachine" Width="200" HorizontalAlignment="Left" IsReadOnly="True" Text="{Binding Path= ThisMachine.RetraitDate , UpdateSourceTrigger=PropertyChanged}"  Background="#eee"  />
                 <!--Entretien-->
-                <Label Content="Entretien"/>
-                <CheckBox x:Name="EntretienMachine" Width="20" HorizontalAlignment="Left" Margin="10 0 0 0" IsEnabled="True" />
+                <Label Content="Entretien :"/>
+                <CheckBox x:Name="EntretienMachine" Width="20" HorizontalAlignment="Left" Margin="10 0 0 0" IsChecked="{Binding Path=ThisMachine.Entretenir,UpdateSourceTrigger=PropertyChanged}"  />
                 <!--Réparation-->
                 <Label Content="Réparation"/>
-                <CheckBox x:Name="repMachine" Width="20" HorizontalAlignment="Left" Margin="10 0 0 0" IsEnabled="True" />
+                <CheckBox x:Name="repMachine" Width="20" HorizontalAlignment="Left" Margin="10 0 0 0"  IsChecked="{Binding Path=ThisMachine.Repar,UpdateSourceTrigger=PropertyChanged}" />
                 <!--Affutage-->
                 <Label Content="Affutage"/>
-                <CheckBox x:Name="AffutageMachine" Width="20" HorizontalAlignment="Left" Margin="10 0 0 0" IsEnabled="{Binding Path=IsTailleHaie, UpdateSourceTrigger=PropertyChanged}" />
+                <CheckBox x:Name="AffutageMachine" Width="20" HorizontalAlignment="Left" Margin="10 0 0 0" IsChecked="{Binding Path=ThisMachine.Sharpening,UpdateSourceTrigger=PropertyChanged}" />
                 <!--Remplacement batterie-->
                 <Label Content="Remplacement batterie :"/>
-                <CheckBox x:Name="batterieMachine" Width="20" HorizontalAlignment="Left" Margin="10 0 0 0" IsEnabled="True" />
+                <CheckBox x:Name="batterieMachine" Width="20" HorizontalAlignment="Left" Margin="10 0 0 0" IsChecked="{Binding Path=ThisMachine.ReplaceBattery,UpdateSourceTrigger=PropertyChanged}"  />
                 <!--Button Quitter -->
                 <Button x:Name="BtnQuitter" Content="Quitter" Width="200" Height="20" HorizontalAlignment="Left" Margin="100 10 0 0" Click="BtnQuitter_Click" />
             

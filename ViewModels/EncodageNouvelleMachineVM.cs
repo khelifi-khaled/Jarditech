@@ -14,21 +14,28 @@ namespace Jarditech.ViewModels
        
         private Client _clientSelected;
         private Machines _thisMachine;
+        private string _clientNameSelected;
 
-        
 
 
-        public EncodageNouvelleMachineVM(ClientCollection clients,Machines m , MachinCollection machines )
+
+        public EncodageNouvelleMachineVM(ClientCollection clients,Machines m , MachinCollection machines)
         {
             Clients = clients;
             ThisMachine = m;
             Machins = machines;
         }
 
+        
+
+        public EncodageNouvelleMachineVM() { }
+
+
         //collection of clients 
         public ClientCollection Clients { get; set; }
 
         public MachinCollection Machins { get;set; }
+
 
 
 
@@ -54,27 +61,33 @@ namespace Jarditech.ViewModels
         { 
             get 
             {
-                List<Client> clients = Clients.ToList<Client>();
-
-                _clientSelected = clients.Find(c => c.FirstName.Equals(ClientNameSelected)); //trouver le client qui correspond au nom choisi 
-
-               // ThisMachine.ClientName = _clientSelected.FirstName;//affectation  de nom de client a la machine 
                 return _clientSelected;
-                
             }
             set 
             {
                 _clientSelected = value;
                 OnPropertyChanged(nameof(ClientSelected));
+               
             }
         }
 
-        public string ClientNameSelected { get; set; }
+        public string ClientNameSelected 
+        { 
+            get
+            {
+                return _clientNameSelected;
+            }
+            set
+            {
+                _clientNameSelected = value;
+                OnPropertyChanged(nameof(ClientNameSelected));
+            }
+        }
 
 
         public string [] ClientsNames
         {
-            get { return Clients.Select(c => c.FirstName).ToArray(); }
+            get { return Clients.Select(c => c.FullName).ToArray(); }
             set { }
         }
 

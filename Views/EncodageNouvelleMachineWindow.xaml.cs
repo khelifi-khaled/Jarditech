@@ -17,30 +17,37 @@ namespace Jarditech.Views
         {
             get; set;
         }
+        
 
 
         public EncodageNouvelleMachineWindow(ClientCollection clients,Machines machine, MachinCollection machines)
         {
-            MachinesVM = new EncodageNouvelleMachineVM(clients, machine, machines);
+            MachinesVM = new EncodageNouvelleMachineVM(clients, machine, machines );
             DataContext = MachinesVM;
+            
             InitializeComponent();
         }
 
         private void BtnQuitter_Click(object sender, RoutedEventArgs e)
         {
+            
+            
             this.Close();
         }
 
         private void Fiche_Client_Click(object sender, RoutedEventArgs e)
         {
+            MachinesVM.ClientSelected = MachinesVM.Clients.GetClient(MachinesVM.ClientNameSelected);
+            MachinesVM.ThisMachine.Client = MachinesVM.ClientSelected;
+
             if (MachinesVM.ClientSelected!=null)
             {
-                EncodageClientWindow FicheClient = new EncodageClientWindow(MachinesVM.ClientSelected);
+                EncodageClientWindow FicheClient = new EncodageClientWindow(MachinesVM.Clients, MachinesVM.ClientSelected);
                 FicheClient.Show();
             }
             else
             {
-                MessageBox.Show($"mon chère utilisateur , j'ai  pas de client sélectionner, du coup sélectionne un client pour moi stp , a fin que je poisse  t'afficher sa fiche client.", "Mssg Err");
+                MessageBox.Show($"Mon cher utilisateur, je n'ai pas de client sélectionné, du coup, sélectionne un client pour moi stp, afin que je puisse t'afficher sa fiche client.", "Mssg Err");
             }
         }
     }

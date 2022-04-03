@@ -1,0 +1,110 @@
+﻿<Window x:Class="Jarditech.Views.RepairMachineWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Jarditech.Views" xmlns:viewmodels="clr-namespace:Jarditech.ViewModels" d:DataContext="{d:DesignInstance Type=viewmodels:RepairMachineWindowVM}"
+        mc:Ignorable="d"
+        Title="RepairMachineWindow" Height="620" Width="800">
+    <Border Padding="10">
+        <StackPanel>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="2*"/>
+                </Grid.ColumnDefinitions>
+
+                <!-- Col 1 -->
+                <StackPanel Grid.Column="0">
+
+                    <!-- Machine Number -->
+                    <TextBlock Text="N° Machine :" Margin="5 25 0 5"/>
+                    <TextBox x:Name="MachineNumber" Text="{Binding Path=SelectedMachine.IdMachine, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Padding="2" IsReadOnly="True" Width="80" HorizontalAlignment="Left" Background="#eee"/>
+
+                   
+
+                    <!-- Constructor -->
+                    <TextBlock Text="Constructeur :" Margin="5 10 0 5"/>
+                    <TextBox x:Name="MachineConstructor" Text="{Binding Path=SelectedMachine.ConstructeurMachine, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Padding="2" IsReadOnly="True" Width="120" HorizontalAlignment="Left" Background="#eee"/>
+
+                    <!-- Référence -->
+                    <TextBlock Text="Référence :" Margin="5 10 0 5"/>
+                    <TextBox x:Name="MachineReference" Text="{Binding Path=SelectedMachine.ReferenceMachine, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Padding="2" IsReadOnly="False" Width="120" HorizontalAlignment="Left" Background="#fff"/>
+
+                    <!-- Date de dépot -->
+                    <TextBlock Text="Date de dépot :" Margin="5 10 0 5"/>
+                    <TextBox x:Name="MachineDropOff" Text="{Binding Path=SelectedMachine.DepoDate, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Padding="2" IsReadOnly="True" Width="120" HorizontalAlignment="Left" Background="#eee"/>
+
+                    <!-- Date de retrait -->
+                    <TextBlock Text="Date normale de retrait :" Margin="5 10 0 5"/>
+                    <TextBox x:Name="MachineTakeOut" Text="{Binding Path=SelectedMachine.RetraitDate, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Padding="2" IsReadOnly="True" Width="120" HorizontalAlignment="Left" Background="#eee"/>
+
+                    <!-- Entretrient -->
+                    <TextBlock Text="Entretient :" Margin="5 10 0 5"/>
+                    <CheckBox x:Name="MachineMaintenance" IsChecked="{Binding Path=SelectedMachine.Entretenir, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Padding="2" HorizontalAlignment="Left" Background="#fff"/>
+
+                    <!-- Réparation -->
+                    <TextBlock Text="Réparation :" Margin="5 10 0 5"/>
+                    <CheckBox x:Name="MachineReparation" IsChecked="{Binding Path=SelectedMachine.Repar, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Padding="2" HorizontalAlignment="Left" Background="#fff"/>
+
+                    <!-- Affutage -->
+                    <TextBlock Text="Affûtage :" Margin="5 10 0 5"/>
+                    <CheckBox x:Name="TailleHaieAffutage" IsChecked="{Binding Path=SelectedMachine.Sharpening, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Padding="2" HorizontalAlignment="Left" Background="#fff"/>
+
+                    <!-- Remplacement Batterie -->
+                    <TextBlock Text="Remplacement Batterie :" Margin="5 10 0 5"/>
+                    <CheckBox x:Name="TracteurBatterie" IsChecked="{Binding Path=SelectedMachine.ReplaceBattery, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Padding="2" HorizontalAlignment="Left" Background="#fff"/>
+
+
+                </StackPanel>
+
+                <!-- Col 2 -->
+                <StackPanel Grid.Column="1">
+                    <!-- Client - Fiche client -->
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <!-- Client -->
+                        <StackPanel Grid.Column="0">
+                            <TextBlock Text="Client :" Margin="5 10 0 5"/>
+                            <TextBox x:Name="ComboBoxTypesMachine" Text="{Binding Path= SelectedMachine.Client.FullName }" IsReadOnly="True" Background="#eee" Width="250" HorizontalAlignment="Center" Padding="2" />
+                        </StackPanel>
+
+                        <!-- Fiche Client -->
+                        <StackPanel Grid.Column="1">
+
+                            <Button x:Name="OpenClientFile" Content="Fiche Client" HorizontalAlignment="Left" Width="130" Margin="10 30 0 0" Click="OpenClientFile_Click" />
+                        </StackPanel>
+
+                    </Grid>
+
+                    <!-- Description Client -->
+                    <TextBlock Text="Description Client :" Margin="5 10 0 5"/>
+                    <TextBox x:Name="MachineDescriptionClient" Text="{Binding Path=SelectedMachine.DescriptionClient, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Height="80" Padding="2" IsReadOnly="True" Background="#eee"/>
+
+                    <!-- Description Atelier -->
+                    <TextBlock Text="Description Atelier :" Margin="5 10 0 5"/>
+                    <TextBox x:Name="MachineDescriptionWorker" Text="{Binding Path=SelectedMachine.WorkDescription, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Height="80" Padding="2"/>
+
+                    <!-- Estimation du temps de travail -->
+                    <TextBlock Text="Estimation du temps de travail (minutes) :" Margin="5 10 0 5"/>
+                    <TextBox x:Name="MachineEstimatedWorkTime" Text="{Binding Path=SelectedMachine.WorkTime, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="250" HorizontalAlignment="Left" Padding="2"/>
+
+                    <StackPanel  Orientation="Horizontal" Margin="0 15 0 0">
+                        <TextBlock Text="Statut : "  Margin="5 10 10 5" />
+                        <ComboBox x:Name="MachineStatus" ItemsSource="{Binding Path=MachineStatusList, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding Path=ActuelMachineStatus}"  Width="250" HorizontalAlignment="Left" VerticalAlignment="Center" Padding="2"  />
+                    </StackPanel>
+
+                </StackPanel>
+
+            </Grid>
+
+            <!-- Bouton Quitter -->
+            <Button x:Name="ExitWorkMachine" Content="Quitter" Width="150" Margin="0 25 0 0" Click="ExitWorkMachine_Click"/>
+
+        </StackPanel>
+    </Border>
+</Window>

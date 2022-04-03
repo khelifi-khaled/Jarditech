@@ -17,6 +17,7 @@ namespace Jarditech.ViewModels
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
+        private Machines _selMachine;
 
         private const string MACHINS_JSON_FILE = @"C:\Users\Admin\source\repos\Jarditech\JsonMachine.json";
 
@@ -24,14 +25,29 @@ namespace Jarditech.ViewModels
 
 
         public ClientCollection  Clients { get; set; }
+
         public MachinCollection Machines { get; set; }
 
         public DataAccessJsn AccessjsonMachine { get; set; }
+
          public DataAccessJsn AccessjsonClient { get; set; }
 
-        public Machines SelMachine { get; set; }
-        
 
+
+        public Machines SelMachine 
+        {
+            get
+            {
+                return _selMachine;
+            }
+            set
+            {
+                _selMachine = value;
+                OnPropertyChanged(nameof(SelMachine));
+            }
+        }
+
+        
 
         public MainWindowVM()
         {
@@ -39,9 +55,12 @@ namespace Jarditech.ViewModels
             AccessjsonClient = new DataAccessJsn(CLIENTS_JSON_FILE, new string[] { "json" });
             Machines = AccessjsonMachine.GetMachinDatas();
             Clients = AccessjsonClient.GetClientDatas();
+            
 
         }
 
+
+       
 
 
         protected void OnPropertyChanged(string propertyName)

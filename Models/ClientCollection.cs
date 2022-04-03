@@ -4,19 +4,21 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace Jarditech.Models
 {
     public  class ClientCollection : ObservableCollection<Client>
     {
+       
 
 
-
-        public void AddClient(Client client)
+        public Client GetClient(string clientNameSelected)
         {
-            this.Add(client);
+            List<Client> clients = this.ToList<Client>();
 
-        }//end AddClient
+            return clients.Find(c => c.FullName.Equals(clientNameSelected)); //trouver le client qui correspond au nom choisi 
+        }
 
         
     }

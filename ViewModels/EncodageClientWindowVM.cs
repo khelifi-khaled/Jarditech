@@ -29,11 +29,14 @@ namespace Jarditech.ViewModels
 
         }//end EncodageClientWindowVM
 
-        public EncodageClientWindowVM( Client client)
+
+        public EncodageClientWindowVM(Client client)
         {
             ClientEnCoursEncodage = client;
 
-        }//end EncodageClientWindowVM V2  pour la fiche client 
+        }//end EncodageClientWindowVM
+
+
 
 
 
@@ -67,8 +70,6 @@ namespace Jarditech.ViewModels
                 _clientEnCoursEncodage = value;
                 OnPropertyChanged(nameof(ClientEnCoursEncodage));            
             }
-
-
         }
 
 

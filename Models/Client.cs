@@ -30,6 +30,24 @@ namespace Jarditech.Models
 
         }//end 
 
+
+
+
+        public string FullName
+        {
+            get
+            {
+                return $"{_firstName} {_lastName}";
+            }
+            set
+            {
+
+            }
+        }
+
+
+
+
         [JsonProperty]
         public int IdClient
         {
