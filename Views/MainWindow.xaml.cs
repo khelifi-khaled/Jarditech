@@ -27,7 +27,7 @@ namespace Jarditech.Views
 
 
     {
-        //prop sur le main pour utiliser dans lous Butons 
+        //prop sur le main pour utiliser dans les Btns 
 
         public MainWindowVM MainVM { get; set; }
 
@@ -70,7 +70,7 @@ namespace Jarditech.Views
 
         private void DataGrid_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            RepairMachineWindow repar = new RepairMachineWindow(MainVM.SelMachine,MainVM.SelMachine.Client, MainVM.Clients);
+            RepairMachineWindow repar = new RepairMachineWindow(MainVM.SelMachine,MainVM.Clients);
             repar.Show();
         }
 

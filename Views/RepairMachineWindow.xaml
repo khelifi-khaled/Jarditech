@@ -95,7 +95,8 @@
 
                     <StackPanel  Orientation="Horizontal" Margin="0 15 0 0">
                         <TextBlock Text="Statut : "  Margin="5 10 10 5" />
-                        <ComboBox x:Name="MachineStatus" ItemsSource="{Binding Path=MachineStatusList, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding Path=ActuelMachineStatus}"  Width="250" HorizontalAlignment="Left" VerticalAlignment="Center" Padding="2"  />
+                        <ComboBox x:Name="ComboBoxClient" ItemsSource="{Binding MachineStatus}" SelectedItem="{Binding SelectedMachine.MachineStatus}" Width="150" Height="20" /> 
+
                     </StackPanel>
 
                 </StackPanel>

@@ -30,19 +30,17 @@ namespace Jarditech.Views
 
         private void BtnQuitter_Click(object sender, RoutedEventArgs e)
         {
-            
-            
             this.Close();
         }
 
         private void Fiche_Client_Click(object sender, RoutedEventArgs e)
         {
-            MachinesVM.ClientSelected = MachinesVM.Clients.GetClient(MachinesVM.ClientNameSelected);
-            MachinesVM.ThisMachine.Client = MachinesVM.ClientSelected;
+           
+          
 
-            if (MachinesVM.ClientSelected!=null)
+            if (MachinesVM.ThisMachine.Client!=null)
             {
-                EncodageClientWindow FicheClient = new EncodageClientWindow(MachinesVM.Clients, MachinesVM.ClientSelected);
+                EncodageClientWindow FicheClient = new EncodageClientWindow(MachinesVM.Clients, MachinesVM.ThisMachine.Client);
                 FicheClient.Show();
             }
             else

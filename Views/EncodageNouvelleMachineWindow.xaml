@@ -48,7 +48,15 @@
             <StackPanel Grid.Column="1"  >
                 <Label Content="Clients" Margin="60 0 0 0"/>
                 <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
-                    <ComboBox x:Name="ComboBoxClient" ItemsSource="{Binding ClientsNames, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding ClientNameSelected,UpdateSourceTrigger=PropertyChanged}" Width="150" Height="20"  />
+                    <ComboBox x:Name="ComboBoxClient" ItemsSource="{Binding Clients}" SelectedItem="{Binding ThisMachine.Client}" Width="150" Height="20">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation ="Horizontal">
+                                <TextBlock Text="{Binding FullName}" Padding="2"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                    </ComboBox>
                     <Button x:Name="Fiche_Client" Content="Fiche Client" Width="100" Height="20" HorizontalAlignment="Center"  Click="Fiche_Client_Click" Margin="10"  />
                 </StackPanel>
 

@@ -56,46 +56,11 @@ namespace Jarditech.ViewModels
 
 
 
-        //for the client selected 
-        public Client ClientSelected
-        { 
-            get 
-            {
-                return _clientSelected;
-            }
-            set 
-            {
-                _clientSelected = value;
-                OnPropertyChanged(nameof(ClientSelected));
-               
-            }
-        }
+       
 
-        public string ClientNameSelected 
-        { 
-            get
-            {
-                return _clientNameSelected;
-            }
-            set
-            {
-                _clientNameSelected = value;
-                OnPropertyChanged(nameof(ClientNameSelected));
-            }
-        }
+       
 
-
-        public string [] ClientsNames
-        {
-            get { return Clients.Select(c => c.FullName).ToArray(); }
-            set { }
-        }
-
-        
-
-
-
-
+      
 
 
 

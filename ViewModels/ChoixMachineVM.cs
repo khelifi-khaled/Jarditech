@@ -15,7 +15,7 @@ namespace Jarditech.ViewModels
         public event PropertyChangedEventHandler PropertyChanged;
 
 
-        private  string[] _liste_type_machin = { "TailleHaie", "Tondeuse", "TracteurTondeuse" };
+        private  string[] _list_type_machin = { "TailleHaie", "Tondeuse", "TracteurTondeuse" };
 
 
 
@@ -44,16 +44,16 @@ namespace Jarditech.ViewModels
 
 
 
-        public string [] Liste_type_machin 
+        public string [] List_type_machin 
         { 
             get
             {
-                return _liste_type_machin;
+                return _list_type_machin;
             }
             set
             {
-                _liste_type_machin = value;
-                OnPropertyChanged(nameof(Liste_type_machin));
+                _list_type_machin = value;
+                OnPropertyChanged(nameof(List_type_machin));
             }
         }
 

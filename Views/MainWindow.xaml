@@ -9,9 +9,9 @@
     <StackPanel>
         <Menu IsMainMenu="True">
             <MenuItem Header="_Programme">
-                <Separator />
+                <Separator/>
                 <MenuItem x:Name ="Sauver" Header="Sauver" Click="Sauver_Click" />
-                <MenuItem x:Name ="Exit" Header="_Exit" Click="Exit_Click" />
+                <MenuItem x:Name ="Exit" Header="_Exit" Click="Exit_Click"/>
             </MenuItem>
             <MenuItem Header="_Entretien reparation">
                 <MenuItem Header="Nouvelle machine" x:Name="NewMachine"  Click="NewMachine_Click" />

@@ -15,20 +15,18 @@ namespace Jarditech.ViewModels
          private  Machines _selectedMachine;
 
         private string[] _machineStatus = {"Attente_Traitement","Reparation_En_Cours","Attent_Retrait", "Retrait" };
-        private string _actuelMachineStatus; 
+        
 
 
-        public RepairMachineWindowVM(Machines m,Client c,ClientCollection clients)
+        public RepairMachineWindowVM(Machines m,ClientCollection clients)
         {
             SelectedMachine = m;
-            ThisClient = c;
             Clients = clients;  
         }
 
 
         public ClientCollection Clients { get; set; }
 
-        public Client ThisClient { get; set; }
 
         public Machines SelectedMachine
         {
@@ -44,21 +42,7 @@ namespace Jarditech.ViewModels
         }
 
 
-        public string ActuelMachineStatus
-        {
-           get
-            {
-               return _actuelMachineStatus;
-            }
-            set 
-            {
-                _actuelMachineStatus = value;
-                OnPropertyChanged(nameof(ActuelMachineStatus));
-            }
-        }
-
-
-        public string [] MachineStatusList
+        public string [] MachineStatus
         {
             get
             {
@@ -66,12 +50,12 @@ namespace Jarditech.ViewModels
             }
             set
             {
-                _machineStatus = value;
-                OnPropertyChanged(nameof(MachineStatusList));
+
             }
         }
 
-        
+
+
 
 
 

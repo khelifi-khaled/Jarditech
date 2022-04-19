@@ -7,8 +7,8 @@
       "IdMachine": 1,
       "ConstructeurMachine": "reno",
       "ReferenceMachine": "123456",
-      "DepoDate": "2022-04-03T16:30:36.3010132+02:00",
-      "RetraitDate": "2022-04-17T16:30:36.3010132+02:00",
+      "DepoDate": "2022-04-19T19:14:41.657639+02:00",
+      "RetraitDate": "2022-05-03T19:14:41.657639+02:00",
       "Client": {
         "$type": "Jarditech.Models.Client, Jarditech",
         "FullName": "maxime lover",
@@ -32,8 +32,8 @@
       "IdMachine": 2,
       "ConstructeurMachine": "IKJ123",
       "ReferenceMachine": "HREF55842",
-      "DepoDate": "2022-04-03T16:30:36.3671701+02:00",
-      "RetraitDate": "2022-04-17T16:30:36.3671701+02:00",
+      "DepoDate": "2022-04-19T19:14:41.9011788+02:00",
+      "RetraitDate": "2022-05-03T19:14:41.9011788+02:00",
       "Client": {
         "$type": "Jarditech.Models.Client, Jarditech",
         "FullName": "mathilde dpdt",
@@ -50,15 +50,15 @@
       "Repar": true,
       "Price": 0.0,
       "WorkTime": 60,
-      "MachineStatus": "Reparation_En_Cours"
+      "MachineStatus": "Retrait"
     },
     {
       "$type": "Jarditech.Models.Tondeuse, Jarditech",
       "IdMachine": 3,
       "ConstructeurMachine": "KOW1200LLM",
       "ReferenceMachine": "UYGER00215A",
-      "DepoDate": "2022-04-03T16:30:36.3810305+02:00",
-      "RetraitDate": "2022-04-17T16:30:36.3810305+02:00",
+      "DepoDate": "2022-04-19T19:14:41.912721+02:00",
+      "RetraitDate": "2022-05-03T19:14:41.912721+02:00",
       "Client": {
         "$type": "Jarditech.Models.Client, Jarditech",
         "FullName": "khaled khelifi",
@@ -76,6 +76,31 @@
       "Price": 0.0,
       "WorkTime": 600,
       "MachineStatus": "Attent_Retrait"
+    },
+    {
+      "$type": "Jarditech.Models.Tondeuse, Jarditech",
+      "IdMachine": 4,
+      "ConstructeurMachine": "zefzefz",
+      "ReferenceMachine": "zefzef",
+      "DepoDate": "2022-04-19T19:14:41.9129481+02:00",
+      "RetraitDate": "2022-05-03T19:14:41.9129481+02:00",
+      "Client": {
+        "$type": "Jarditech.Models.Client, Jarditech",
+        "FullName": "Filip dpdt",
+        "IdClient": 4,
+        "FirstName": "Filip",
+        "LastName": "dpdt",
+        "Adress": "Mons",
+        "MailClient": "dpdt@gmail.com",
+        "PhoneClient": "0123456789"
+      },
+      "DescriptionClient": "ergergerg",
+      "WorkDescription": "zfezef",
+      "Entretenir": true,
+      "Repar": true,
+      "Price": 0.0,
+      "WorkTime": 22,
+      "MachineStatus": "Retrait"
     }
   ]
 }

@@ -25,22 +25,22 @@ namespace Jarditech.Views
 
 
 
-        public RepairMachineWindow(Machines m ,Client c , ClientCollection clients )
+        public RepairMachineWindow(Machines m , ClientCollection clients )
         {
-            RepairVM = new RepairMachineWindowVM(m,c,clients);
+            RepairVM = new RepairMachineWindowVM(m,clients);
             DataContext = RepairVM;
             InitializeComponent();
         }
 
         private void ExitWorkMachine_Click(object sender, RoutedEventArgs e)
         {
-            RepairVM.SelectedMachine.MachineStatus = RepairVM.ActuelMachineStatus;
             this.Close();
         }
 
         private void OpenClientFile_Click(object sender, RoutedEventArgs e)
         {
-            EncodageClientWindow ClientFile = new EncodageClientWindow(RepairVM.Clients,RepairVM.ThisClient);
+            EncodageClientWindow ClientFile = new EncodageClientWindow(RepairVM.Clients,RepairVM.SelectedMachine.Client);
+            ClientFile.Show();
 
         }
 
